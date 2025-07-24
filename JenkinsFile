@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven 3.9.6'
+        jdk 'JDK 21'
+    }
+
+    environment {
+        MAVEN_OPTS = "-Dmaven.repo.local=.m2/repository"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git url: 'https://your-git-repo-url.git', branch: 'main' // güncelle
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean compile'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+
+        stage('Archive Reports') {
+            steps {
+                archiveArtifacts artifacts: 'target/**/*.html', allowEmptyArchive: true
+                junit 'target/cucumber.xml'
+            }
+        }
+    }
+}
