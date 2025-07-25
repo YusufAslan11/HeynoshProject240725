@@ -1,4 +1,4 @@
 package pages;
 
-public class FilterPage {
+public class FilterPage extends BasePage{
 }

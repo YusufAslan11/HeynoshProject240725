@@ -1,4 +1,10 @@
 package pages;
 
-public class RestaurantPage {
+public class RestaurantPage extends BasePage{
+
+
+
+
+
+
 }

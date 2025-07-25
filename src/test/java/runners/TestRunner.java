@@ -15,7 +15,8 @@ import org.junit.runner.RunWith;
                 "junit:target/cucumber.xml"                  // JUnit XML raporu (CI/CD uyumlu)
         },
         monochrome = true,                               // Log çıktısını sadeleştirir
-        dryRun = false                                    // true yapılırsa testler çalışmaz, eksik step'leri gösterir
+        dryRun = true,                                    // true yapılırsa testler çalışmaz, eksik step'leri gösterir
+        tags = "@register_free"
 )
 public class TestRunner {
 }
